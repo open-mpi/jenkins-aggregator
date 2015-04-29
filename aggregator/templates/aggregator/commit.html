@@ -1,0 +1,7 @@
+<h1>Test suite triggered at {{ commit.triggerTime }}</h1>
+
+<ul>
+{% for resultset in commit.resultset_set.all %}
+    <li><a href="{% url 'aggregator:resultset' resultset.id %}">{{ resultset.sourceID }} -- {{ resultset.passed }}</a></li>
+{% endfor %}
+</ul>

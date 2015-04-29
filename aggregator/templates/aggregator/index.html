@@ -1,0 +1,9 @@
+{% if latest_commit_list %}
+    <ul>
+    {% for commit in latest_commit_list %}
+        <li><a href="{% url "aggregator:commit" commit.id %}">{{ commit.triggerTime }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No test results are available.</p>
+{% endif %}

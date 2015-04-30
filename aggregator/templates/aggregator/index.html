@@ -1,7 +1,12 @@
 {% if latest_commit_list %}
+    <p>Recent test suites:</p>
     <ul>
     {% for commit in latest_commit_list %}
-        <li><a href="{% url "aggregator:commit" commit.id %}">{{ commit.triggerTime }}</a></li>
+        {% if commit.passed %} <!-- TODO colorfy pass/fail -->
+            <li><a href="{% url "aggregator:commit" commit.id %}">{{ commit.triggerTime }}</a> -- Passed</li>
+        {% else %}
+            <li><a href="{% url "aggregator:commit" commit.id %}">{{ commit.triggerTime }}</a> -- Failed</li>
+        {% endif %}
     {% endfor %}
     </ul>
 {% else %}

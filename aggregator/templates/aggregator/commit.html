@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<body>
+
 <h1>Test suite triggered at {{ commit.triggerTime }}</h1> <!-- link back to Github here or below? -->
 
 {% if commit.resultset_set.all %} <!-- TODO will this work correctly if it's an empty list (but not None?) -->
@@ -18,3 +22,6 @@
 {% else %}
     <p>No results for this test suite have been submitted yet.</p>
 {% endif %}
+
+</body>
+</html>

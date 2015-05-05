@@ -1,14 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<ul> <!-- the menu bar -->
+    <li><a href="{% url "aggregator:index" %}">Site Name</a></li>
+    <li><a href="{% url "aggregator:index" %}">Home</a></li>
+    <li>About</li>
+    <li>Archive</li>
+</ul>
+
+<ul> <!-- the nav bar -->
+    <li><a href="{% url "aggregator:index" %}">Home</a></li>
+</ul>
+
+<h3>Blurb</h3>
+<p>A blurb about the aggregator. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+<h3>Recent Project Commits</h3>
 {% if latest_commit_list %}
-    <p>Recent test suites:</p>
-    <ul>
+<table>
+    <tr>
+        <th>S</th>
+        <th>Date</th>
+        <th>Tests/Reports</th>
+        <th>Commit ID</th>
+    </tr>
+    
     {% for commit in latest_commit_list %}
+    <tr>
         {% if commit.passed %} <!-- TODO colorfy pass/fail -->
-            <li><a href="{% url "aggregator:commit" commit.id %}">{{ commit.triggerTime }}</a> -- Passed</li>
+        <td>P</td>
         {% else %}
-            <li><a href="{% url "aggregator:commit" commit.id %}">{{ commit.triggerTime }}</a> -- Failed</li>
+        <td>F</td>
         {% endif %}
+        <td><a href="{% url "aggregator:commit" commit.id %}">{{ commit.triggerTime }}</a></td>
+        <td>TODO: tests/reports numbers</td>
+        <td>{{ commit.sha }}</td> <!-- TODO limit to first (?) 6 (?) characters of sha; add link to GitHub -->
+    </tr>
     {% endfor %}
-    </ul>
+</table>
 {% else %}
-    <p>No test results are available.</p>
+<p>No test results are available.</p>
 {% endif %}
+
+</body>
+</html>

@@ -1,44 +1,77 @@
-body { font-family: "Lucida Grande", Lucida, sans-serif; }
-.main-body { padding: 0em 1.5em; }
+html, body {
+    margin: 0em;
+    padding: 0em;
+    height: 100%;
+}
 
-a:link { color: #1763ED; }
-a:visited { color: #0E4099; }
+body { 
+    font-family: "Lucida Grande", Lucida, sans-serif; 
+    color: #3A3A3A; 
+    background-color: #F2F2F2;
+}
 
-h1, h2, h3, h4, h5, h6, td { color: #333333; }
-p { color: #666666; }
+p { color: #606060; }
+a:link { color: green; }
+a:visited { color: #737373; } /* TODO enough contrast? */
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.main-body { /* TODO make the white box extend to the bottom of the page, even when there isn't that much content */
+    background-color: white;
+    padding: .5em 1.5em;
+    max-width: 1080px;
+    margin: 0em auto;
+}
+
+.float-right { 
+    float: right; 
+}
 
 /* menu formatting */
 #menugrad {
-  background: -webkit-linear-gradient(left, #173876 , #5A86D5); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #173876 , #5A86D5); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #173876 , #5A86D5); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #173876 , #5A86D5);
+  background: -webkit-linear-gradient(left, forestgreen, silver); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, forestgreen, silver); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, forestgreen , silver); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, forestgreen , silver);
 }
-/* .pure-menu { background-color: #173876; } */
+/* .pure-menu { background-color: forestgreen; } */
 
 /* .pure-menu-horizontal .pure-menu-item, .pure-menu-horizontal .pure-menu-heading { vertical-align: bottom; } */
 
 .pure-menu a {
-    color: #CCCCCC;
+    color: white; /* TODO still not happy with this */
     font-size: 135%;
 }
 
-.pure-menu-selected a.pure-menu-link, .pure-menu-selected a.pure-menu-link:visited { color: white; }
+.pure-menu-selected a.pure-menu-link, .pure-menu-selected a.pure-menu-link:visited { 
+    color: white;
+    background-color: forestgreen; 
+}
 
 a.pure-menu-heading {
     color: white;
     font-size: 150%;
+    padding: .5em 1em .5em 0em;
 }
 
-.pure-menu-active > .pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
-    background-color: #4D76C2;
+.pure-menu-active > .pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus { background-color: #71A671; }
+
+.header-logo {
+    height: 4em;
+    vertical-align: middle;
+    padding: .5em;
 }
+
+a.logo-link { font-size: 100%; }
 
 /* table formatting */
 table
 {
 	border-collapse: collapse;
-	border: 1pt #5A86D5 solid;
+	border: 1pt silver solid;
 }
 
 th, td
@@ -48,12 +81,11 @@ th, td
 }
 
 th { 
-    background-color: #5A86D5; 
-    color: #F2F2F2;
+    background-color: silver; 
 }
 
 tr:nth-child(2n-1) { background-color: #F2F2F2; }
-tr:hover { background-color: #D0DFFA; }
+tr:hover { background-color: #D0E2D0; }
 
 td.pass { 
     color: green; 
@@ -62,4 +94,37 @@ td.pass {
 td.fail { 
     color: crimson; 
     font-weight: bold;
+}
+
+/* footer formatting */
+/* TODO make it not obscure the bottom of the main body in very short windows */
+.footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: silver;
+}
+
+.footer ul { 
+    list-style: outside none none; 
+    margin: 0em;
+    padding: .5em 1em;
+}
+
+.footer li {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0em .25em;
+    color: #3A3A3A;
+}
+
+.footer a:link, .footer a:visited { color: #3A3A3A; }
+
+.footer-logo {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: auto;
 }

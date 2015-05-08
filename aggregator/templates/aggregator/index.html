@@ -11,8 +11,11 @@
 </head>
 
 <body>
+<div class="wrapper">
 
 <div class="pure-menu pure-menu-horizontal" id="menugrad"> <!-- the menu bar; TODO move to separate template w/ Django include tag? -->
+    <a class="logo-link" href="www.open-mpi.org"><img class="header-logo float-right" alt="Open MPI logo" src="{% static 'aggregator/images/open-mpi-logo-grayscale.png' %}"></a> <!-- TODO make Django recognize as external link -->
+    <a class="logo-link" href="{% url 'aggregator:index' %}"><img class="header-logo" alt="Conflux logo" src="{% static 'aggregator/images/conflux-logo.png' %}"></a>
     <a class="pure-menu-heading" href="{% url 'aggregator:index' %}">Conflux</a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item pure-menu-selected"><a class="pure-menu-link" href="{% url 'aggregator:index' %}">Home</a></li>
@@ -61,5 +64,17 @@
     {% endif %}
 </div>
 
+<div class="footer"> <!-- TODO move to separate, included file -->
+    <ul class="float-right">
+        <li><a href="">OMPI Home</a></li> <!-- TODO make Django give correct link -->
+        <li><a href="">OMPI GitHub</a></li>
+    </ul>
+    <a class="logo-link" href="www.open-mpi.org"><img class="footer-logo" alt="Open MPI logo" src="{% static 'aggregator/images/open-mpi-logo-grayscale.png' %}"></a>
+    <ul>
+        <li>©2015 The Open MPI Project</li>
+    </ul>
+</div>
+
+</div>
 </body>
 </html>
